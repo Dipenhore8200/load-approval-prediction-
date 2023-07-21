@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-
+import pickle
 # Function to convert 'Yes' and 'No' options to 1 and 0 respectively
 def yes_no_to_binary(val):
     return 1 if val == 'Yes' else 0
