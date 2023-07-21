@@ -6,10 +6,9 @@ def yes_no_to_binary(val):
     return 1 if val == 'Yes' else 0
 
 def predict_loan_approval(user_inputs_array):
-    # TODO: Call your ML model to make predictions using 'user_inputs_array'
-    # Replace the dummy prediction with your actual ML model's logic
-    # For now, we assume the model returns 1 (approved)
-    return 1
+    loaded_model = pickle.load(open('loan prediction model', 'rb'))
+    predictions = loaded_model.predict(user_inputs_array)
+    return predictions
 
 def main():
     # Set the title of the app
