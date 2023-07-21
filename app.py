@@ -5,6 +5,12 @@ import numpy as np
 def yes_no_to_binary(val):
     return 1 if val == 'Yes' else 0
 
+def predict_loan_approval(user_inputs_array):
+    # TODO: Call your ML model to make predictions using 'user_inputs_array'
+    # Replace the dummy prediction with your actual ML model's logic
+    # For now, we assume the model returns 1 (approved)
+    return 1
+
 def main():
     # Set the title of the app
     st.title("Loan Prediction App")
@@ -30,16 +36,15 @@ def main():
     # Convert user_inputs list to a 2D array
     user_inputs_array = np.array(user_inputs).reshape(1, -1)
 
-    # TODO: Call your ML model to make predictions using 'user_inputs_array'
+    # Predict button
+    if st.button("Predict"):
+        loan_prediction = predict_loan_approval(user_inputs_array)
 
-    # Dummy prediction: Assuming the model returns 1 (approved)
-    loan_prediction = 1
-
-    # Display the prediction result
-    if loan_prediction == 1:
-        st.header("Loan Approved!")
-    else:
-        st.header("Loan Not Approved!")
+        # Display the prediction result
+        if loan_prediction == 1:
+            st.header("Loan Approved!")
+        else:
+            st.header("Loan Not Approved!")
 
 if __name__ == "__main__":
     main()
